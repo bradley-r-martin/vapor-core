@@ -22,6 +22,7 @@ class SignedStorageUrlController extends Controller implements SignedStorageUrlC
     {
         $this->ensureEnvironmentVariablesAreAvailable($request);
 
+        $bucket = $request->input('bucket') ?: $_ENV['AWS_BUCKET'];
         // Gate::authorize('uploadFiles', [
         //     $request->user(),
         //     $bucket = $request->input('bucket') ?: $_ENV['AWS_BUCKET'],
